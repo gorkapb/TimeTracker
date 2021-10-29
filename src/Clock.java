@@ -42,7 +42,7 @@ updating the time to the observers.*/
     };
 
     Timer timer = new Timer("Timer");
-    timer.scheduleAtFixedRate(updateTime, 0, 2000L); //Period = 2s
+    timer.scheduleAtFixedRate(updateTime, 1, 2000L); //Period = 2s
   }
 
 }

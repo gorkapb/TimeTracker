@@ -1,7 +1,6 @@
 public class Main {
 
   public static void apendixA(){
-    Clock clock = Clock.getInstance();
 
     Project root = new Project("root", null);
     Project softwareDesing = new Project("software design", root);
