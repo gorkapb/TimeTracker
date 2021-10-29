@@ -1,6 +1,13 @@
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+/*
+ Class Task, extended Assigment
+ Its function is to divide a project class into smaller parts,
+ and thus easier to work with.
+ You will have a list of the intervals that have been performed during the task * /
+ */
+
 public class Task extends Assignment {
   private ArrayList<Interval> intervals = new ArrayList<Interval>();
 

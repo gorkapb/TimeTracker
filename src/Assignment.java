@@ -2,6 +2,10 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/*
+ Assigments class,
+ Its function is to generalize two subclasses (Project and Task)
+ */
 public abstract class Assignment {
   private static final int project = 0;
   private static final int task = 1;
@@ -64,6 +68,8 @@ public abstract class Assignment {
     this.totalTime = Duration.ofSeconds(totalTime);
   }
 
+  /* Displays the data of the
+   assigment and your higher assigments. */
   public void show() {
     String init = this.initialTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     String fin = this.finalTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));

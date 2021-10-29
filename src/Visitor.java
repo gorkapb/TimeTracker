@@ -13,7 +13,10 @@ import java.util.Iterator;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 
-
+/*
+ Create a JSON object with the project data
+    and a JSON array with the data of the child intervals.
+ */
 public class Visitor {
   private JSONArray jsonArray;
 

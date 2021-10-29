@@ -1,5 +1,11 @@
 import java.util.ArrayList;
 
+/*
+ Project class extension of Assigment
+ It is used to generalize the parts of a job or delivery.
+ You have access to a list of your lower projects, if any.
+ The same with the tasks that could depend on him.
+ */
 public class Project extends Assignment {
   private ArrayList<Assignment> children = new ArrayList<Assignment>();
 

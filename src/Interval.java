@@ -4,6 +4,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Observable;
 import java.util.Observer;
 
+/* Interval class, treated as observer
+    Tries to divide a task into the time frames used to complete it. */
 public class Interval implements Observer {
   private LocalDateTime initialTime;
   private Duration totalTime;
@@ -16,6 +18,11 @@ public class Interval implements Observer {
     this.parent = parent;
     this.parent.addInterval(this);
   }
+
+  /*
+ Override Observer's update class to save
+    the time it receives from the notifyObserver of the Clock class.
+ */
 
   @Override
   public void update(Observable o, Object time) {
@@ -48,6 +55,7 @@ public class Interval implements Observer {
     vis.visitInterval(this);
   }
 
+  // Displays the data of the interval
   public void show() {
     String init = this.initialTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     String fin = this.finalTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
