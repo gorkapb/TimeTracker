@@ -1,0 +1,100 @@
+[{
+    "initialTime": "2021-10-29 02:44:42",
+    "children": [
+        {
+            "initialTime": "2021-10-29 02:44:48",
+            "children": [
+                {
+                    "initialTime": "2021-10-29 02:44:48",
+                    "children": [
+                        {
+                            "initialTime": "2021-10-29 02:44:48",
+                            "intervals": [{
+                                "initialTime": "2021-10-29 02:44:48",
+                                "totalTime": 10,
+                                "finalTime": "2021-10-29 02:44:58"
+                            }],
+                            "totalTime": 10,
+                            "name": "first list",
+                            "finalTime": "2021-10-29 02:44:58"
+                        },
+                        {
+                            "initialTime": "2021-10-29 02:44:54",
+                            "intervals": [{
+                                "initialTime": "2021-10-29 02:44:54",
+                                "totalTime": 6,
+                                "finalTime": "2021-10-29 02:45:00"
+                            }],
+                            "totalTime": 6,
+                            "name": "second list",
+                            "finalTime": "2021-10-29 02:45:00"
+                        }
+                    ],
+                    "totalTime": 16,
+                    "name": "problems",
+                    "finalTime": "2021-10-29 02:45:00"
+                },
+                {
+                    "initialTime": null,
+                    "children": [
+                        {
+                            "initialTime": null,
+                            "intervals": [],
+                            "totalTime": 0,
+                            "name": "read handout",
+                            "finalTime": null
+                        },
+                        {
+                            "initialTime": null,
+                            "intervals": [],
+                            "totalTime": 0,
+                            "name": "first milestone",
+                            "finalTime": null
+                        }
+                    ],
+                    "totalTime": 0,
+                    "name": "project time tracker",
+                    "finalTime": null
+                }
+            ],
+            "totalTime": 16,
+            "name": "software design",
+            "finalTime": "2021-10-29 02:45:00"
+        },
+        {
+            "initialTime": null,
+            "children": [],
+            "totalTime": 0,
+            "name": "software testing",
+            "finalTime": null
+        },
+        {
+            "initialTime": null,
+            "children": [],
+            "totalTime": 0,
+            "name": "databases",
+            "finalTime": null
+        },
+        {
+            "initialTime": "2021-10-29 02:44:42",
+            "intervals": [
+                {
+                    "initialTime": "2021-10-29 02:44:40",
+                    "totalTime": 4,
+                    "finalTime": "2021-10-29 02:44:46"
+                },
+                {
+                    "initialTime": "2021-10-29 02:45:02",
+                    "totalTime": 4,
+                    "finalTime": "2021-10-29 02:45:06"
+                }
+            ],
+            "totalTime": 8,
+            "name": "transportation",
+            "finalTime": "2021-10-29 02:45:06"
+        }
+    ],
+    "totalTime": 24,
+    "name": "root",
+    "finalTime": "2021-10-29 02:45:06"
+}]
