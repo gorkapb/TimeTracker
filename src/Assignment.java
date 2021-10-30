@@ -27,17 +27,15 @@ public abstract class Assignment {
 
   public void update(LocalDateTime actualTime, int seconds) {
     if(this.totalTime.getSeconds()==0) { //not started yet
-      this.initialTime = actualTime.minusSeconds(2);
+      this.initialTime = actualTime.minusSeconds(seconds);
     }
     this.totalTime = this.totalTime.plusSeconds(seconds);
     this.finalTime = actualTime;
 
-//    System.out.println("This is " + name);
-//    System.out.println("Initial time: " + initialTime);
-//    System.out.println("Total time: " + totalTime.getSeconds());
-//    System.out.println("Final time: " + finalTime);
 
     show();
+
+    //Send update information to parents
     if(this.parent != null) {
       this.parent.update(actualTime, seconds);
     }
@@ -69,14 +67,11 @@ public abstract class Assignment {
   }
 
   /* Displays the data of the
-   assigment and your higher assigments. */
+   assigment and the higher assigments. */
   public void show() {
     String init = this.initialTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     String fin = this.finalTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     System.out.println("activity: \t" + this.name + "\t\t" + init + "\t\t" + fin + "\t\t" + this.totalTime.getSeconds());
-//    if (this.parent != null) {
-//      this.parent.show();
-//    }
   }
 
   public void acceptVisitor(Visitor vis) {};

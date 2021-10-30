@@ -2,7 +2,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /*
- Class Task, extended Assigment
+ Class Task, extends Assigment
  Its function is to divide a project class into smaller parts,
  and thus easier to work with.
  You will have a list of the intervals that have been performed during the task * /
@@ -17,9 +17,6 @@ public class Task extends Assignment {
   }
 
   public void start() {
-//    System.out.println("-> Task started, this is " + this.name);
-//    System.out.println("My parent is " + this.parent.name);
-
     Clock clock = Clock.getInstance();
     LocalDateTime actualTime = clock.getTime();
     Interval interval = new Interval(this, actualTime);
@@ -27,15 +24,8 @@ public class Task extends Assignment {
   }
 
   public void stop() {
-//    System.out.println("-> Task stopped, this is " + name);
-//    System.out.println("My parent is " + parent.name);
-
     Clock clock = Clock.getInstance();
     clock.deleteObserver(this.intervals.get(this.intervals.size()-1));
-
-//    System.out.println("Initial time: " + initialTime);
-//    System.out.println("Total time: " + totalTime.getSeconds());
-//    System.out.println("Final time: " + finalTime);
   }
 
   public ArrayList<Interval> getIntervals(){

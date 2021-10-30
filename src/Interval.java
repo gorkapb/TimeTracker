@@ -7,6 +7,7 @@ import java.util.Observer;
 /* Interval class, treated as observer
     Tries to divide a task into the time frames used to complete it. */
 public class Interval implements Observer {
+  private static final int SECONDS = 2; //Clock period
   private LocalDateTime initialTime;
   private Duration totalTime;
   private LocalDateTime finalTime;
@@ -16,20 +17,19 @@ public class Interval implements Observer {
     this.totalTime = Duration.ofSeconds(0);
     this.initialTime = actualTime;
     this.parent = parent;
-    this.parent.addInterval(this);
+    this.parent.addInterval(this); //Adds itself to parent's array
   }
 
   /*
  Override Observer's update class to save
     the time it receives from the notifyObserver of the Clock class.
  */
-
   @Override
   public void update(Observable o, Object time) {
-    this.totalTime = this.totalTime.plusSeconds(2);
+    this.totalTime = this.totalTime.plusSeconds(SECONDS);
     this.finalTime = (LocalDateTime) time;
     this.show();
-    this.parent.update((LocalDateTime) time,2);
+    this.parent.update((LocalDateTime) time,2); //Update parent
 
   }
 
@@ -60,8 +60,5 @@ public class Interval implements Observer {
     String init = this.initialTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     String fin = this.finalTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     System.out.println("interval: \t\t\t" + "\t\t" + "\t\t" + init + "\t\t" + fin + "\t\t" + this.totalTime.getSeconds());
-//    if (this.parent != null) {
-//      this.parent.show();
-//    }
   }
 }
