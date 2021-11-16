@@ -1,0 +1,115 @@
+[{
+    "initialTime": "2021-11-16 14:47:02",
+    "children": [
+        {
+            "initialTime": "2021-11-16 14:47:10",
+            "children": [
+                {
+                    "initialTime": "2021-11-16 14:47:10",
+                    "children": [
+                        {
+                            "initialTime": "2021-11-16 14:47:10",
+                            "intervals": [{
+                                "initialTime": "2021-11-16 14:47:10",
+                                "totalTime": 10,
+                                "type": "interval",
+                                "finalTime": "2021-11-16 14:47:20"
+                            }],
+                            "totalTime": 10,
+                            "name": "first list",
+                            "type": "task",
+                            "finalTime": "2021-11-16 14:47:20"
+                        },
+                        {
+                            "initialTime": "2021-11-16 14:47:16",
+                            "intervals": [{
+                                "initialTime": "2021-11-16 14:47:16",
+                                "totalTime": 6,
+                                "type": "interval",
+                                "finalTime": "2021-11-16 14:47:22"
+                            }],
+                            "totalTime": 6,
+                            "name": "second list",
+                            "type": "task",
+                            "finalTime": "2021-11-16 14:47:22"
+                        }
+                    ],
+                    "totalTime": 16,
+                    "name": "problems",
+                    "type": "project",
+                    "finalTime": "2021-11-16 14:47:22"
+                },
+                {
+                    "initialTime": null,
+                    "children": [
+                        {
+                            "initialTime": null,
+                            "intervals": [],
+                            "totalTime": 0,
+                            "name": "read handout",
+                            "type": "task",
+                            "finalTime": null
+                        },
+                        {
+                            "initialTime": null,
+                            "intervals": [],
+                            "totalTime": 0,
+                            "name": "first milestone",
+                            "type": "task",
+                            "finalTime": null
+                        }
+                    ],
+                    "totalTime": 0,
+                    "name": "project time tracker",
+                    "type": "project",
+                    "finalTime": null
+                }
+            ],
+            "totalTime": 16,
+            "name": "software design",
+            "type": "project",
+            "finalTime": "2021-11-16 14:47:22"
+        },
+        {
+            "initialTime": null,
+            "children": [],
+            "totalTime": 0,
+            "name": "software testing",
+            "type": "project",
+            "finalTime": null
+        },
+        {
+            "initialTime": null,
+            "children": [],
+            "totalTime": 0,
+            "name": "databases",
+            "type": "project",
+            "finalTime": null
+        },
+        {
+            "initialTime": "2021-11-16 14:47:02",
+            "intervals": [
+                {
+                    "initialTime": "2021-11-16 14:47:02",
+                    "totalTime": 4,
+                    "type": "interval",
+                    "finalTime": "2021-11-16 14:47:06"
+                },
+                {
+                    "initialTime": "2021-11-16 14:47:24",
+                    "totalTime": 4,
+                    "type": "interval",
+                    "finalTime": "2021-11-16 14:47:28"
+                }
+            ],
+            "totalTime": 8,
+            "name": "transportation",
+            "type": "task",
+            "finalTime": "2021-11-16 14:47:28"
+        }
+    ],
+    "totalTime": 24,
+    "name": "root",
+    "type": "project",
+    "finalTime": "2021-11-16 14:47:28"
+}]

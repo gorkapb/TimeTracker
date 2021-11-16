@@ -1,7 +1,10 @@
-import java.util.ArrayList;
+package core;
 
-/*
- Project class extension of Assigment
+import java.util.ArrayList;
+import visitors.Visitor;
+
+/**
+ core.Project class extension of Assigment
  It is used to generalize the parts of a job or delivery.
  You have access to a list of your lower projects, if any.
  The same with the tasks that could depend on him.
@@ -14,7 +17,7 @@ public class Project extends Assignment {
     this.type = true;
   }
 
-  public ArrayList<Assignment> getChildren(){
+  public ArrayList<Assignment> getChildren() {
     return this.children;
   }
 
@@ -25,6 +28,6 @@ public class Project extends Assignment {
 
   @Override
   public void acceptVisitor(Visitor vis) {
-    vis.visitRoot(this);
+    vis.visitProject(this);
   }
 }

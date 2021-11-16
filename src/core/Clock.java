@@ -1,3 +1,5 @@
+package core;
+
 import java.time.LocalDateTime;
 import java.util.Observable;
 import java.util.Timer;
@@ -5,7 +7,7 @@ import java.util.TimerTask;
 
 //This class will be in charge of accessing the time of the device and updating its observers.
 public class Clock extends Observable{
-  private static final int SECONDS = 2; //Clock period
+  private static final int SECONDS = 2; //core.Clock period
   private static Clock uniqueInstance;
   private LocalDateTime time;
 

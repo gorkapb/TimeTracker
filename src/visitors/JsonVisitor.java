@@ -1,3 +1,9 @@
+package visitors;
+
+import core.Assignment;
+import core.Interval;
+import core.Project;
+import core.Task;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -14,47 +20,21 @@ import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 
 /*
- Create a JSON object with the project data
+ Extends visitors.Visitor Class,
+ create a JSON object with the project data
     and a JSON array with the data of the child intervals.
  */
-public class Visitor {
+public class JsonVisitor extends Visitor{
   private JSONArray jsonArray;
 
-
-  public Visitor(){
+  public JsonVisitor(){
     this.jsonArray = new JSONArray();
   }
 
-  public void visitRoot(Project project) {
-    JSONObject obj = new JSONObject();
-    obj.put("name", project.getName());
-    if (project.getInitialTime() != null) {
-      obj.put("initialTime", project.getInitialTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-      obj.put("finalTime", project.getFinalTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-    }
-    else {
-      obj.put("initialTime", JSONObject.NULL);
-      obj.put("finalTime",JSONObject.NULL);
-    }
-    obj.put("totalTime", project.getTotalTime());
-
-    JSONArray children = new JSONArray();
-
-    for (Assignment child : project.getChildren()) {
-      if (child.getType()){
-        children.put(visitProject((Project) child));
-      }
-      else {
-        children.put(visitTask((Task) child));
-      }
-    }
-
-    obj.put("children", children);
-    this.jsonArray.put(obj);
-  }
-
+  @Override
   public JSONObject visitProject(Project project){
     JSONObject obj = new JSONObject();
+    obj.put("type", "project");
     obj.put("name", project.getName());
     if (project.getInitialTime() != null) {
       obj.put("initialTime", project.getInitialTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
@@ -78,12 +58,17 @@ public class Visitor {
     }
 
     obj.put("children", children);
+    if (project.getParent() == null) {
+      this.jsonArray.put(obj);
+    }
     return obj;
   }
 
+  @Override
   public JSONObject visitTask(Task task){
 
     JSONObject obj = new JSONObject();
+    obj.put("type", "task");
     obj.put("name", task.getName());
     if (task.getInitialTime() != null) {
       obj.put("initialTime", task.getInitialTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
@@ -105,8 +90,10 @@ public class Visitor {
     return obj;
   }
 
+  @Override
   public JSONObject visitInterval(Interval interval){
     JSONObject obj = new JSONObject();
+    obj.put("type", "interval");
     if (interval.getInitialTime() != null) {
       obj.put("initialTime", interval.getInitialTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
       obj.put("finalTime", interval.getFinalTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
@@ -177,3 +164,5 @@ public class Visitor {
   }
 
 }
+
+

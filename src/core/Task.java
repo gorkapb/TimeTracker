@@ -1,8 +1,12 @@
+package core;
+
+import visitors.Visitor;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /*
- Class Task, extends Assigment
+ Class core.Task, extends Assigment
  Its function is to divide a project class into smaller parts,
  and thus easier to work with.
  You will have a list of the intervals that have been performed during the task * /

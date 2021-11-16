@@ -1,17 +1,21 @@
+package core;
+
+import visitors.Visitor;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Observable;
 import java.util.Observer;
 
-/* Interval class, treated as observer
+/* core.Interval class, treated as observer
     Tries to divide a task into the time frames used to complete it. */
 public class Interval implements Observer {
-  private static final int SECONDS = 2; //Clock period
+  private static final int SECONDS = 2; //core.Clock period
   private LocalDateTime initialTime;
   private Duration totalTime;
   private LocalDateTime finalTime;
-  private Task parent;
+  private final Task parent;
 
   public Interval(Task parent, LocalDateTime actualTime) {
     this.totalTime = Duration.ofSeconds(0);
@@ -22,7 +26,7 @@ public class Interval implements Observer {
 
   /*
  Override Observer's update class to save
-    the time it receives from the notifyObserver of the Clock class.
+    the time it receives from the notifyObserver of the core.Clock class.
  */
   @Override
   public void update(Observable o, Object time) {
