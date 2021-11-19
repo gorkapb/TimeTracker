@@ -41,7 +41,7 @@ public class SearchByTagVisitor extends Visitor{
   public void setNewSearch (String tag) {
     this.tag = tag;
     this.searchResult = new ArrayList<Assignment>();
-    System.out.println("Searching by tag: " + this.tag);
+    logger.info("Searching by tag: " + this.tag);
 
   }
 

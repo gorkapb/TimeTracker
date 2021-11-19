@@ -7,6 +7,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Observable;
 import java.util.Observer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /* core.Interval class, treated as observer
     Tries to divide a task into the time frames used to complete it. */
@@ -16,6 +18,7 @@ public class Interval implements Observer {
   private Duration totalTime;
   private LocalDateTime finalTime;
   private final Task parent;
+  private static final Logger logger = LoggerFactory.getLogger(Interval.class);
 
   public Interval(Task parent, LocalDateTime actualTime) {
     this.totalTime = Duration.ofSeconds(0);
@@ -63,6 +66,7 @@ public class Interval implements Observer {
   public void show() {
     String init = this.initialTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     String fin = this.finalTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-    System.out.println("interval: \t\t\t" + "\t\t" + "\t\t" + init + "\t\t" + fin + "\t\t" + this.totalTime.getSeconds());
+    logger.info("interval:\t {} \t {} \t {}",
+        init, fin, this.totalTime.getSeconds());
   }
 }

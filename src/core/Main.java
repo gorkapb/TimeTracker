@@ -2,11 +2,15 @@ package core;
 
 import visitors.JsonVisitor;
 import visitors.SearchByTagVisitor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
 
 public class Main {
+  private static final Logger logger = LoggerFactory.getLogger(Main.class);
+
 
   public static void testApenddB(){
     Clock clock = Clock.getInstance();
@@ -24,30 +28,30 @@ public class Main {
     Task readHandout = new Task("read handout", projectTimeTracker);
     Task firstMilestone = new Task("first milestone", projectTimeTracker);
 
-    System.out.println("Start Test\n");
-    System.out.println("Transportation starts:\n");
+    logger.info("Start Test\n");
+    logger.info("Transportation starts:\n");
     transportation.start();
     sleep(4);
     transportation.stop();
-    System.out.println("Transportation stop\n");
+    logger.info("Transportation stop\n");
     sleep(2);
-    System.out.println("First list starts\n");
+    logger.info("First list starts\n");
     firstList.start();
     sleep(6);
-    System.out.println("Second list start\n");
+    logger.info("Second list start\n");
     secondList.start();
     sleep(4);
     firstList.stop();
-    System.out.println("First list stop\n");
+    logger.info("First list stop\n");
     sleep(2);
     secondList.stop();
-    System.out.println("Second list stop\n");
+    logger.info("Second list stop\n");
     sleep(2);
-    System.out.println("Transportation starts\n");
+    logger.info("Transportation starts\n");
     transportation.start();
     sleep(4);
     transportation.stop();
-    System.out.println("Transportation stop\n");
+    logger.info("Transportation stop\n");
 
 
   }
@@ -68,30 +72,30 @@ public class Main {
       Task readHandout = new Task("read handout", projectTimeTracker);
       Task firstMilestone = new Task("first milestone", projectTimeTracker);
 
-      System.out.println("Start Test\n");
-      System.out.println("Transportation starts:\n");
+      logger.info("Start Test\n");
+      logger.info("Transportation starts:\n");
       transportation.start();
       sleep(4);
       transportation.stop();
-      System.out.println("Transportation stop\n");
+      logger.info("Transportation stop\n");
       sleep(2);
-      System.out.println("First list starts\n");
+      logger.info("First list starts\n");
       firstList.start();
       sleep(6);
-      System.out.println("Second list start\n");
+      logger.info("Second list start\n");
       secondList.start();
       sleep(4);
       firstList.stop();
-      System.out.println("First list stop\n");
+      logger.info("First list stop\n");
       sleep(2);
       secondList.stop();
-      System.out.println("Second list stop\n");
+      logger.info("Second list stop\n");
       sleep(2);
-      System.out.println("Transportation starts\n");
+      logger.info("Transportation starts\n");
       transportation.start();
       sleep(4);
       transportation.stop();
-      System.out.println("Transportation stop\n");
+      logger.info("Transportation stop\n");
 
 
     JsonVisitor vis = new JsonVisitor();
@@ -138,30 +142,29 @@ public class Main {
     root.acceptVisitor(vis);
     results = vis.getSearchResult();
     for ( Assignment result : results ) {
-      System.out.println(result.getName());
+      logger.info(result.getName());
     }
 
     vis.setNewSearch("python");
     root.acceptVisitor(vis);
     results = vis.getSearchResult();
     for ( Assignment result : results ) {
-      System.out.println(result.getName());
+      logger.info(result.getName());
     }
 
     vis.setNewSearch("flutter");
     root.acceptVisitor(vis);
     results = vis.getSearchResult();
     for ( Assignment result : results ) {
-      System.out.println(result.getName());
+      logger.info(result.getName());
     }
 
     vis.setNewSearch("a");
     root.acceptVisitor(vis);
     results = vis.getSearchResult();
     for ( Assignment result : results ) {
-      System.out.println(result.getName());
+      logger.info(result.getName());
     }
-
 
   }
 
@@ -175,9 +178,9 @@ public class Main {
 
 
   public static void main(String[] args) {
-    //testApenddB();
-    //testSaveData();
-    //testLoadData();
-    testSearchByTag();
+    testApenddB();
+//    testSaveData();
+//    testLoadData();
+//    testSearchByTag();
   }
 }

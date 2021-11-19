@@ -4,6 +4,8 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import visitors.Visitor;
 
 /**
@@ -17,7 +19,8 @@ public abstract class Assignment {
   protected Assignment parent;
   protected String name;
   protected boolean type;
-  private ArrayList<String> tags = new ArrayList<String>();
+  protected ArrayList<String> tags = new ArrayList<String>();
+  protected static final Logger logger = LoggerFactory.getLogger(Assignment.class);
 
 
   public Assignment(String name, Assignment parent) {
@@ -27,15 +30,21 @@ public abstract class Assignment {
     if (this.parent != null) {
       this.parent.addChild(this); //Make parent know it's existence
     }
+    assert invariant(): "Class isn't invariant.";
   }
 
+  protected boolean invariant() {
+    return this.totalTime.getSeconds() >= 0;
+  }
+
+
   public void update(LocalDateTime actualTime, int seconds) {
+    assert invariant(): "The class isn't invariant";
     if (this.totalTime.getSeconds() == 0) { //not started yet
       this.initialTime = actualTime.minusSeconds(seconds);
     }
     this.totalTime = this.totalTime.plusSeconds(seconds);
     this.finalTime = actualTime;
-
 
     show();
 
@@ -48,34 +57,42 @@ public abstract class Assignment {
   public void addChild(Assignment assignment){}
 
   public void addTag(String tag) {
+    assert invariant(): "The class isn't invariant";
     this.tags.add(tag);
   }
 
   public String getName() {
+    assert invariant(): "The class isn't invariant";
     return this.name;
   }
 
   public LocalDateTime getInitialTime() {
+    assert invariant(): "The class isn't invariant";
     return this.initialTime;
   }
 
   public LocalDateTime getFinalTime() {
+    assert invariant(): "The class isn't invariant";
     return this.finalTime;
   }
 
   public long getTotalTime() {
+    assert invariant(): "The class isn't invariant";
     return this.totalTime.getSeconds();
   }
 
   public boolean getType() {
+    assert invariant(): "The class isn't invariant";
     return this.type;
   }
 
   public ArrayList<String> getTags() {
+    assert invariant(): "The class isn't invariant";
     return this.tags;
   }
 
   public Assignment getParent() {
+    assert invariant(): "The class isn't invariant";
     return this.parent;
   }
 
@@ -83,18 +100,13 @@ public abstract class Assignment {
    *assignment and the higher assignments.
    */
   public void show() {
-    String init;
-    String fin;
+    assert invariant(): "The class isn't invariant";
 
-    if (this.initialTime == null) {
-      init = "Not initial time yet";
-      fin = "Not final time yet";
-    } else {
-      init = this.initialTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-      fin = this.finalTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-    }
-    System.out.println("activity: \t" + this.name + "\t\t"
-        + init + "\t\t" + fin + "\t\t" + this.totalTime.getSeconds());
+    String init = this.initialTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+    String fin = this.finalTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
+    logger.info("activity: \t {} \t {} \t {} \t {}",
+        this.name, init, fin, this.totalTime.getSeconds());
   }
 
   public void acceptVisitor(Visitor vis) {}

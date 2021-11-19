@@ -1,0 +1,30 @@
+<configuration debug="true">
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <layout class="ch.qos.logback.classic.html.HTMLLayout">
+                <pattern>%msg%n</pattern>
+        </layout>
+        <file>logs.html</file>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root>
+
+
+    <!--  Uncomment to disable log -->
+
+    <!-- Milestone 1 -->
+<!--    <logger name="core.Assignment" level="OFF" />-->
+<!--    <logger name="core.Interval" level="OFF" />-->
+
+    <!-- Milestone 2 -->
+<!--    <logger name="visitors.Visitor" level="OFF" />-->
+<!--    <logger name="core.Main" level="OFF" />-->
+
+</configuration>
